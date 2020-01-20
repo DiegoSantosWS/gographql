@@ -8,36 +8,26 @@ diegosantosws1@gmail.com
 
 * INTRODUÇÃO
 
-Nos ultimos anos GRAPHQL vem se destacando, e algumas empresas vem usando essa especificação em suas aplicações, 
-seja elas sites ou apps mobile.
+Nos ultimos anos *GRAPHQL* tem se tornado bem popular entre empresas que vem adotando o uso da *especificação* em suas aplicações,
+seja em sites, sistemas ou apps mobile.
 
-* POR QUE USAR GO E NÃO JS?
+* O QUE É GRAPHQL?
 
-Para responder essa pergunta, vai gerar uma grande discurção póis a varios motivos em ambos os lados, mas no caso da empresa que eu trabalho
-Go ganhou disparado do js. 
 
-Decidimos usar o GRAPHQL do lado do backend para manter mais o controle em nossas mãos uma vez que todo time de backend não sabe js, e a forma que o GRAPHQL
-anterior foi feito não agradava o Senior da empresa, entao ele definiu que ia ser feito em go. Simple assim!
+* TYPES
+
+* QUERYS
+
+* MUTATION
+
+* RESOLVERS
 
 * GQLGEN
-
-Para chegar nessa lib tbm tem uma historinha a ser contada, pois eu e senior da empresa começamos a escrever as 06am hahaahhaa, por fim ele ganhou.
-
-Quem ainda não conhece GQLGEN é uma lib em go que gera codigo necessarios apartir dos schemas. Hein...? isso mesmo você criar os shemas que serão usados e roda o comando
-e todo codigo será gerado, mas não se anime que nem tudo são flores.
-
-Bom voce ainda vai precisar resolver as coisas... ou seja criar seus resolver's.
-
-* TRATAMENTO DE ERRORS
-
-Nossa lib tem o proprio tratamento de error assim facilita nossa vida. E claro devemos usar.
 
 .play codes/erros.go
 
 * SCHEMAS.
 
-Depois de muito bater cabeça, resolvi apresentar um schema usando *The* *Star* *Wars* *API*
-so por um motivo: estava sem TEMPO para criar uma api do zero.
 
 .code codes/example.graphql
 
@@ -48,6 +38,8 @@ O schema da nossa api foi criado com base no json da *The* *Star* *Wars* *API*
 SHOW ME CODE...
 
 .image images/feliz.gif
+
+* EMPRESAS QUE USAM
 
 * LINKS
 
