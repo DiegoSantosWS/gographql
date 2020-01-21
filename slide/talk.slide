@@ -98,22 +98,87 @@ O INPUT é semelhante a um objeto GRAPHQL exeto pq é usado somente como argumen
 
 * RESOLVERS
 
+Resolver é uma função que devolve dados para um campo  em particular. Resolvers devolvem dados no tipo e formato especificados pelo schema.
+
+* 
+Para exemplificar um resolver vamos uar uma lib e falar um pouco de golang que o objetivo.
+
 * GQLGEN
 
+GQLGEN é uma lib feita interamente em go ajudar na criação do graphql. GQLGEN é um mistério a ser desvendado.
+A lib trabalha com contexto o tempo inteiro.
+
+Quando escolhi usa-la levei em consideração o fato dela ajudar na criação de todo processo. Como assim?
+
+Em outras lib's como go-graphql temos que criar tudo, então podemos ganhar um pouco de performance e autonomia do código.
+pore a nivel de praticidade perdemos muito. Visto que na época eu precisava de praticidade deixei um pouco da performance para refatoração.
+
+* INICIANDO GQLGEN
+
+Para iniciar gqlgen usamos os comandos referente a qualquer lib
+
+go get github.com/99designs/gqlgen
+
+EXEMPLO DO SITE
+``
+$ mkdir gqlgen-todos
+$ cd gqlgen-todos
+$ go mod init github.com/[username]/gqlgen-todos
+``
+
+Assim conseguimos inicar um projeto.
+
+Após o procedimento acima GQLGEN cria alguns arquivos / diretorio. Sendo eles.
+
+* 
+- gqlgen.yml 
+O yml é o arquivo de configuração do codigo, neste arquivos que definimos a estrutura que devemos uasar. (caso não definirmos ele vai criar uma confome o schema definido)
+
+- generated.go
+Este arquivo contem a maior parte processo de execução do sistema.
+
+- models_gen.go
+Caso o gql gere o codigo vai está neste arquivo (Se mudar algo aqui vai dar pau).
+
+- resolver.go
+
+Neste arquivo vai conter as funções de query e mutations e o *generated* vai entrar em contato com esse arquivo para obter os
+dados solicitados.
+
+* 
+- server/server.go
+
+Onde existe a configuração do nosso servidor.
+
+* 
+
+Agora sim podemos pensar em resolvers, mas para isso precisamos manipular o arquivo criado, pois sempre que criarmos uma nova query ou mutation
+devemos rodar o comando 
+
+ go run github.com/99designs/gqlgen/ 
+
+pois é ele exclue models_gen e resolver e cria tudo novamente. A melhor forma é criar 2 novos arquivos e add o resolve no .gitgnore. 
+
+Exemplo: 
+
+No exempre criei diretorio manager com os arquivos generated e resolver 
+
+
+* 
+
+.code codes/r.go
+
+* 
+
+Para exemplificar melhor vou mostrar o codigo como fica uma query e uma putation gerada via gqlgen.
+
+
+
+.link https://github.com/graphql-go/graphql go-graphql
+
+* Erros gqlgen
+
 .play codes/erros.go
-
-* SCHEMAS.
-
-
-.code codes/example.graphql
-
-* CODE API
-
-O schema da nossa api foi criado com base no json da *The* *Star* *Wars* *API*
-
-SHOW ME CODE...
-
-.image images/feliz.gif
 
 * EMPRESAS QUE USAM
 
@@ -125,3 +190,8 @@ SHOW ME CODE...
 .link https://t.me/go_br GO BR
 .link https://github.com/DiegoSantosWS MEU GITHUB
 .link https://t.me/go_bh GRUPO TELEGRAM
+
+* PERGUNTAS 
+
+.image images/questions.gif _ 900
+
