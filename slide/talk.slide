@@ -1,5 +1,5 @@
-GRAPHQL LADO BACKEND
-Criando GRAPHQL com golang e gqlgen
+GRAPHQL DO LADO BACKEND
+Criando GraphQL com Go e gqlgen
 
 DIEGO SANTOS
 Back-end at Fliper
@@ -8,20 +8,20 @@ diegosantosws1@gmail.com
 
 * INTRODUÇÃO
 
-Nos ultimos anos *GRAPHQL* tem se tornado bem popular entre empresas que vem adotando o uso da *especificação* em suas aplicações,
-seja em sites, sistemas ou apps mobile.
+Nos últimos anos o *GraphQL* tem se tornado bem popular e cada vez mais as empresas tem adotando o uso da *especificação* em suas aplicações,
+seja em sites, sistemas ou aplicativos móveis.
 
 * O QUE É GRAPHQL?
 
-GRAPHQL é uma linguagem de consultas para suas API's. Sendo também um runtime para atender a consultas com seus dados.
-O serviço GRAPHQL é independente do meio de transporte, sendo usado na maioria das vezes sob o protocolo HTTP.
+*GraphQL* é uma linguagem de consultas para suas API's. Sendo também um _runtime_ (ambiente de execução) para atender a consultas com seus dados.
 
-A especificação surgiu por volta de 2012, quando facebook teve a necessidade de reconstruir seus aplicativos moveis,
-visto que na época era apenas uma view do site movel.
+Um serviço *GraphQL* é independente do meio de transporte, sendo usado na maioria das vezes sob o protocolo *HTTP*.
 
 * DEFINIÇÃO
 
-GRAPHQL não passa de especificação (spec) que descreve recursos e caracteristicasde para comunicação cliente/servidor
+*GraphQL* é uma _spec_ (especificação) que descreve recursos e características para comunicação cliente/servidor
+
+A especificação surgiu por volta de 2012, quando *Facebook* teve a necessidade de reconstruir seu aplicativo móvel, visto que na época era apenas uma _view_ do site móvel.
 
 * TYPES
 
@@ -34,7 +34,7 @@ GRAPHQL não passa de especificação (spec) que descreve recursos e caracterist
 
 * 
 
-No *GRAPHQL* existem alguns types (tipos), são conhecidos como *root* *type* (tipos raiz) que são pré definidos.
+No *GraphQL* existem alguns types (tipos) pré-definidos e que são conhecidos como *root* *type* (tipos raiz).
 
 * 
 
@@ -47,11 +47,11 @@ No *GRAPHQL* existem alguns types (tipos), são conhecidos como *root* *type* (t
 - Boolean*
 - ID*
 
-Alguns tipos escalares vem embutidos no graphql, são os marcados com * e são bem úteis, mas pode ter situções em que você precisará personalizar seus proprios tipos.
+Alguns tipos escalares vem embutidos no graphql, são os marcados com *** e são bem úteis, mas pode ter situções em que você precisará personalizar seus próprios tipos.
 
-OBS: Esses tipos não é considerado um objeto pois não tem campos
+OBS: Esses tipos não são considerados como objetos pois não possuem campos
 
-Um exemplo é o tipo *Time* usaso no campo *Created* do schema *Person*
+Um exemplo é o tipo *Time* usado no campo *Created* do schema *Person*
 
 * EXEMPLO DE SCHEMAS PARA TIPOS ESCALARES.
 
@@ -59,9 +59,9 @@ Um exemplo é o tipo *Time* usaso no campo *Created* do schema *Person*
 
 * QUERYS
 
-É definido como root type. Os campos distponives na query para consultas são definidos no SCHEMA.
+É definida como *root* *type*. Os campos disponíves na query para consultas são definidos no _SCHEMA_.
 
-OBS: Uma query serve realizar consultas. É o mesmo que fazer uma requisição usando o verbo GET. 
+OBS: Uma query serve para realizar consultas. É o mesmo que fazer uma requisição usando o verbo GET. 
 
 "NA VERDADE ESTAMOS USANDO ELE NO *RESOLVER* NA MAIORIA DAS CONSULTAS"
 
@@ -70,9 +70,7 @@ OBS: Uma query serve realizar consultas. É o mesmo que fazer uma requisição u
 
 .code codes/definicaoquery.graphql
 
-Quando começamos a usar GRAPHQL precisamos instalar um cliente para testarmos querys e motations, esse cliente contem
-um playground. onde vamos executar as chamadas, um exemplo online é: 
-.link https://swapi.graph.cool/ swapi
+Quando começamos a usar *GraphQL* precisamos instalar um cliente para testarmos _querys_ e _motations_, esse cliente contém um _playground_ onde vamos executar as chamadas, um exemplo online é: [[https://swapi.graph.cool/][swapi]]
 
 * EXEMPLO DE USABILIDADE PARA QUERY
 
@@ -80,10 +78,9 @@ um playground. onde vamos executar as chamadas, um exemplo online é:
 
 * MUTATION
 
-As Mutações também são definidas em um SCHEMA assim como as querys, possuem seus tipos objetos personalizados, que devem ser adicionados no schema. Não existe muita diferença
-no modo de definir uma mutação ou query.
+As *mutations* (mutações) também são definidas em um _SCHEMA_ assim como as _querys_, possuem seus tipos/objetos personalizados, que devem ser adicionados no _schema_. Não existe muita diferença no modo de definir uma *mutação* ou *query*.
 
-A diferença existente esta na interação. Forma de usar uma *MUTATION* é quando houver uma ação, evento de mudar algo que diz respeito ao estado de um registro.
+A diferença existente esta na interação. Uma forma de usar uma *MUTATION* é quando houver uma ação, evento de mudar algo que diz respeito ao estado de um registro.
 
 Uma *MUTATION* deve representar os verbos HTTP em sua aplicação.
 
@@ -93,75 +90,75 @@ Uma *MUTATION* deve representar os verbos HTTP em sua aplicação.
 
 * TYPE INPUT
 
-Este tipo costuma ser usado quando tempos muitos parametros a ser passado para uma mutation. O INPUT é uma forma de organizar.
-O INPUT é semelhante a um objeto GRAPHQL exeto pq é usado somente como argumento de entrada, para mutation.
+Este tipo costuma ser usado quando tempos muitos parâmetros a ser passado para uma *mutation*. O _INPUT_ é uma forma de organizar.
+O _INPUT_ é semelhante a um objeto *GraphQL* exceto porque é usado somente como argumento de entrada, para uma *mutation*.
 
 * RESOLVERS
 
-Resolver é uma função que devolve dados para um campo  em particular. Resolvers devolvem dados no tipo e formato especificados pelo schema.
+*Resolver* é uma função que devolve dados para um campo  em particular. *Resolvers* devolvem dados no tipo e formato especificados pelo _schema_.
 
 * 
-Para exemplificar um resolver vamos uar uma lib e falar um pouco de golang que o objetivo.
+Para exemplificar um resolver vamos usar uma lib e falar um pouco de *Go* que é o objetivo.
 
 * GQLGEN
 
-GQLGEN é uma lib feita interamente em go ajudar na criação do graphql. GQLGEN é um mistério a ser desvendado.
-A lib trabalha com contexto o tempo inteiro.
+O *gqlgen* é uma lib, feita puramente em *Go*, que ajuda na criação do *GraphQL*. 
 
-Quando escolhi usa-la levei em consideração o fato dela ajudar na criação de todo processo. Como assim?
+O *gqlgen* é o mistério a ser desvendado. A lib trabalha com contexto o tempo inteiro e quando escolhi usá-la levei em consideração o fato dela ajudar na criação de todo o processo. 
 
-Em outras lib's como go-graphql temos que criar tudo, então podemos ganhar um pouco de performance e autonomia do código.
-pore a nivel de praticidade perdemos muito. Visto que na época eu precisava de praticidade deixei um pouco da performance para refatoração.
+*Mas,* *como* *assim?*
+
+Em outras lib's, como *go-graphql*, temos que criar tudo, então podemos ganhar um pouco de performance e autonomia do código.
+Porém, a nível de praticidade perdemos muito. Visto que na época eu precisava de praticidade deixei um pouco da performance para refatoração.
 
 * INICIANDO GQLGEN
 
-Para iniciar gqlgen usamos os comandos referente a qualquer lib
+Para iniciar o uso do *gqlgen*, usamos os comandos referente a qualquer lib *Go*:
 
-go get github.com/99designs/gqlgen
+ go get github.com/99designs/gqlgen
 
 EXEMPLO DO SITE
-``
-$ mkdir gqlgen-todos
-$ cd gqlgen-todos
-$ go mod init github.com/[username]/gqlgen-todos
-``
+
+ $ mkdir gqlgen-todos
+ $ cd gqlgen-todos
+ $ go mod init github.com/[username]/gqlgen-todos
 
 Assim conseguimos inicar um projeto.
 
-Após o procedimento acima GQLGEN cria alguns arquivos / diretorio. Sendo eles.
-
 * 
+
+Após o procedimento anterior, o *gqlgen* cria alguns arquivos / diretórios, sendo eles:
+
 - gqlgen.yml 
-O yml é o arquivo de configuração do codigo, neste arquivos que definimos a estrutura que devemos uasar. (caso não definirmos ele vai criar uma confome o schema definido)
+O *gqlgen.yml* é o arquivo de configuração do código, é neste arquivos que definimos a estrutura que devemos usar. (caso não definirmos ele vai criar uma confome o *schema* definido)
 
 - generated.go
-Este arquivo contem a maior parte processo de execução do sistema.
+Este arquivo contém a maior parte do processo de execução do sistema.
 
 - models_gen.go
-Caso o gql gere o codigo vai está neste arquivo (Se mudar algo aqui vai dar pau).
+Caso o *gqlgen* gere o código, ele vai está neste arquivo (Se mudar algo aqui vai dar pau).
+
+* 
 
 - resolver.go
 
-Neste arquivo vai conter as funções de query e mutations e o *generated* vai entrar em contato com esse arquivo para obter os
-dados solicitados.
+Este arquivo vai conter as funções de _query_ e _mutations_ e o *generated* vai entrar em contato com esse arquivo para obter os dados solicitados.
 
-* 
 - server/server.go
 
 Onde existe a configuração do nosso servidor.
 
 * 
 
-Agora sim podemos pensar em resolvers, mas para isso precisamos manipular o arquivo criado, pois sempre que criarmos uma nova query ou mutation
-devemos rodar o comando 
+Agora sim podemos pensar em *resolvers*, mas para isso precisamos manipular o arquivo criado, pois sempre que criarmos uma nova _query_ ou _mutation_ devemos rodar o comando:
 
  go run github.com/99designs/gqlgen/ 
 
-pois é ele exclue models_gen e resolver e cria tudo novamente. A melhor forma é criar 2 novos arquivos e add o resolve no .gitgnore. 
+pois é ele que exclue o *models_gen.go* e *resolver* e recria tudo novamente. A melhor forma é criar 2 novos arquivos e add o resolve no _.gitgnore_. 
 
 Exemplo: 
 
-No exempre criei diretorio manager com os arquivos generated e resolver 
+No exempre criei diretorio *manager* com os arquivos *generated* e *resolver* 
 
 
 * 
@@ -170,7 +167,7 @@ No exempre criei diretorio manager com os arquivos generated e resolver
 
 * 
 
-Para exemplificar melhor vou mostrar o codigo como fica uma query e uma putation gerada via gqlgen.
+Para exemplificar melhor, vou mostrar como fica o código de uma *query* e uma *mutation* gerada via *gqlgen*.
 
 
 
