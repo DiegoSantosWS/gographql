@@ -1,0 +1,17 @@
+//exemplo de uma query graphql no playground
+query{
+    person(id: "cj0nv9p8yewci0130wjy4o5fa") {
+        name
+        birthyear
+        createdAt
+    }
+}
+
+//resultado da consulta acima.
+"data": {
+    "person" :{
+        "name": "Leia Organa",
+        "birthYear":"19BBY",
+        "createdAt":"2017-03-24T13:32:40.000Z",
+    }
+}

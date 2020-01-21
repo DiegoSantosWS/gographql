@@ -1,0 +1,14 @@
+type Query {
+    person(personID: Int!): Person!
+}
+
+input NewPerson {
+    Name:String
+    Birthyear:String
+}
+
+type Mutation {
+    createPerson(input: NewPerson!): Person!
+}
+
+scalar Time //TYPE DO TIPO SCALAR

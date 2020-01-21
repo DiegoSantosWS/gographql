@@ -1,14 +1,5 @@
-type Planets {
-
-    climate: String
-    diameter: String
-    gravity: String
-    name: String
-    orbital_period: String
-    population: String
-    residents: [String]
-    rotation_period: String
-    surface_water: String
-    terrain: String
-    url: String
+type Person {
+    Name:String
+    Birthyear:String
+    Created: Time
 }

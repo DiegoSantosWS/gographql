@@ -13,12 +13,88 @@ seja em sites, sistemas ou apps mobile.
 
 * O QUE É GRAPHQL?
 
+GRAPHQL é uma linguagem de consultas para suas API's. Sendo também um runtime para atender a consultas com seus dados.
+O serviço GRAPHQL é independente do meio de transporte, sendo usado na maioria das vezes sob o protocolo HTTP.
+
+A especificação surgiu por volta de 2012, quando facebook teve a necessidade de reconstruir seus aplicativos moveis,
+visto que na época era apenas uma view do site movel.
+
+* DEFINIÇÃO
+
+GRAPHQL não passa de especificação (spec) que descreve recursos e caracteristicasde para comunicação cliente/servidor
 
 * TYPES
 
+1 - ROOT TYPES
+
+- QUERY
+- MUTATION
+- SUBSCRIPTION
+- INPUT 
+
+* 
+
+No *GRAPHQL* existem alguns types (tipos), são conhecidos como *root* *type* (tipos raiz) que são pré definidos.
+
+* 
+
+2 - TYPES ESCALARES 
+
+- Time
+- Int*
+- Float*
+- String*
+- Boolean*
+- ID*
+
+Alguns tipos escalares vem embutidos no graphql, são os marcados com * e são bem úteis, mas pode ter situções em que você precisará personalizar seus proprios tipos.
+
+OBS: Esses tipos não é considerado um objeto pois não tem campos
+
+Um exemplo é o tipo *Time* usaso no campo *Created* do schema *Person*
+
+* EXEMPLO DE SCHEMAS PARA TIPOS ESCALARES.
+
+.code codes/example.graphql
+
 * QUERYS
 
+É definido como root type. Os campos distponives na query para consultas são definidos no SCHEMA.
+
+OBS: Uma query serve realizar consultas. É o mesmo que fazer uma requisição usando o verbo GET. 
+
+"NA VERDADE ESTAMOS USANDO ELE NO *RESOLVER* NA MAIORIA DAS CONSULTAS"
+
+
+* EXEMPLO DE SCHEMA PARA CHAMADAS DAS QUERY E MUTATION
+
+.code codes/definicaoquery.graphql
+
+Quando começamos a usar GRAPHQL precisamos instalar um cliente para testarmos querys e motations, esse cliente contem
+um playground. onde vamos executar as chamadas, um exemplo online é: 
+.link https://swapi.graph.cool/ swapi
+
+* EXEMPLO DE USABILIDADE PARA QUERY
+
+.code codes/exemplos.json
+
 * MUTATION
+
+As Mutações também são definidas em um SCHEMA assim como as querys, possuem seus tipos objetos personalizados, que devem ser adicionados no schema. Não existe muita diferença
+no modo de definir uma mutação ou query.
+
+A diferença existente esta na interação. Forma de usar uma *MUTATION* é quando houver uma ação, evento de mudar algo que diz respeito ao estado de um registro.
+
+Uma *MUTATION* deve representar os verbos HTTP em sua aplicação.
+
+* EXEMPLO
+
+.code codes/mutations.graphql
+
+* TYPE INPUT
+
+Este tipo costuma ser usado quando tempos muitos parametros a ser passado para uma mutation. O INPUT é uma forma de organizar.
+O INPUT é semelhante a um objeto GRAPHQL exeto pq é usado somente como argumento de entrada, para mutation.
 
 * RESOLVERS
 
