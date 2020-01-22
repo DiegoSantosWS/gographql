@@ -9,24 +9,26 @@ http://abre.ai/meu_linkedin
 
 * 
 
-.image images/medo.gif _ 900
+.background images/medo.gif
+# .image images/medo.gif _ 900
 
 * INTRODUÇÃO
 
-Nos últimos anos o *GraphQL* tem se tornado bem popular e cada vez mais as empresas tem adotado o uso da *especificação* em suas aplicações,
-seja em sites, sistemas ou aplicativos móveis.
+Nos últimos anos o *GraphQL* tem se tornado bem popular e cada vez mais as empresas tem adotado o uso da *especificação* em suas aplicações, seja em sites, sistemas ou aplicativos móveis.
 
 * O QUE É GRAPHQL?
 
-*GraphQL* é uma linguagem de consultas para suas API's. Sendo também um _runtime_ (ambiente de execução) para atender a consultas com seus dados.
+Como o próprio site define:
 
-Um serviço *GraphQL* é independente do meio de transporte, sendo usado na maioria das vezes sob o protocolo *HTTP*.
+.html codes/citacao.html
 
-1. DEFINIÇÃO
+* ESPECIFICAÇÃO
 
-*GraphQL* é uma _spec_ (especificação) que descreve recursos e características para comunicação cliente/servidor
+*GraphQL* também é uma _spec_ (especificação) que descreve recursos e características para comunicação cliente/servidor.
 
 A especificação surgiu por volta de 2012, quando *Facebook* teve a necessidade de reconstruir seu aplicativo móvel, visto que na época era apenas uma _view_ do site móvel.
+
+Por se tratar de uma _spec_, um serviço *GraphQL* é independente do meio de transporte, porém, é usado na maioria das vezes sob o protocolo *HTTP*.
 
 * TYPES 
 
@@ -105,7 +107,7 @@ Para exemplificar um resolver vamos usar uma lib e falar um pouco de *Go* que é
 
 * 
 
-.background images/feliz.gif 350 1000
+.background images/feliz.gif
 
 * GQLGEN
 
@@ -190,14 +192,15 @@ A seguir um exemplo de _queryRevolver_
 
 * 
 
-É bem facil trabalhar com resolver no gqlgen pois essa função é criada automaticamente. A unica coisa que temos que fazer é
-copia-la para o arquivo de resolver especifíco.
+É bem fácil trabalhar com *resolvers* no gqlgen, pois essa função é criada automaticamente.
+
+A única coisa que temos que fazer é copiá-la para o arquivo de *resolver* específico.
 
 * ERRORS
 
-Gqlgen é composto de funções para tratar os errors que devem ser retornados caso aconteça.
+O *gqlgen* é composto de funções para tratar os erros que por ventura venham a acontecer.
 
-Uma boa pratica é crar um função que trata estes erros.
+Uma boa prática é crar uma função que trata esses erros.
 
 * EXEMPLOS DE ERROS
 
@@ -220,25 +223,30 @@ Uma boa pratica é crar um função que trata estes erros.
 
 * 
 
-Então é isso galera, Ainda tenho algumas pendencias
+Então é isso *Gophers*... mas, ainda temos algumas pendências:
 
 - Querys complexas
 - Subscriptions
 - Paginação
 
-Promento fazer se todos começarem a seguir os canais golang-sp, e rola hashtag *#queryscomplexas* no twitter.
+Promento fazer o complemento dessa palestra se todos começarem a seguir a comunidade *Golang* *SP* nas redes sociais: 
 
-kkkk brincadeiras a parte mas antes do fim do ano farei uma nova. focada nesses 3 temas.
+- youtube.com/c/GolangSP
+- instagram.com/golang_sp/
+- twitter.com/golang_sp
+- linkedin.com/company/golangsp/
+
+e é claro, tem que rolar postagens com a hashtag *#queryscomplexas*.
+
+*kkkk* brincadeiras à parte, mas antes do fim do ano farei uma nova focada nesses 3 temas.
 
 * 
 
 .image images/mineiro.png 500 _
 
-*  
+* 
 
-Obrigado a todos!
-
-.image images/aplausos.gif 500 1000
+.background images/aplausos.gif
 
 
 * LINKS / REFERÊNCIAS
@@ -251,7 +259,7 @@ Obrigado a todos!
 .link https://github.com/DiegoSantosWS MEU GITHUB
 .link https://t.me/go_bh GRUPO TELEGRAM
 
-* PERGUNTAS 
+* 
 
-.image images/questions.gif _ 900
+.background images/questions.gif
 
