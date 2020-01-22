@@ -5,10 +5,15 @@ DIEGO SANTOS
 Back-end at Fliper
 diegosantosws1@gmail.com
 @diegosantosws
+http://abre.ai/meu_linkedin
+
+* 
+
+.image images/medo.gif _ 900
 
 * INTRODUÇÃO
 
-Nos últimos anos o *GraphQL* tem se tornado bem popular e cada vez mais as empresas tem adotando o uso da *especificação* em suas aplicações,
+Nos últimos anos o *GraphQL* tem se tornado bem popular e cada vez mais as empresas tem adotado o uso da *especificação* em suas aplicações,
 seja em sites, sistemas ou aplicativos móveis.
 
 * O QUE É GRAPHQL?
@@ -17,13 +22,15 @@ seja em sites, sistemas ou aplicativos móveis.
 
 Um serviço *GraphQL* é independente do meio de transporte, sendo usado na maioria das vezes sob o protocolo *HTTP*.
 
-* DEFINIÇÃO
+1. DEFINIÇÃO
 
 *GraphQL* é uma _spec_ (especificação) que descreve recursos e características para comunicação cliente/servidor
 
 A especificação surgiu por volta de 2012, quando *Facebook* teve a necessidade de reconstruir seu aplicativo móvel, visto que na época era apenas uma _view_ do site móvel.
 
-* TYPES
+* TYPES 
+
+No *GraphQL* existem alguns types (tipos) pré-definidos e que são conhecidos como *root* *type* (tipos raiz) e *types* *scalar*.
 
 1 - ROOT TYPES
 
@@ -32,13 +39,10 @@ A especificação surgiu por volta de 2012, quando *Facebook* teve a necessidade
 - SUBSCRIPTION
 - INPUT 
 
-* 
-
-No *GraphQL* existem alguns types (tipos) pré-definidos e que são conhecidos como *root* *type* (tipos raiz).
 
 * 
 
-2 - TYPES ESCALARES 
+2 - TIPOS ESCALARES 
 
 - Time
 - Int*
@@ -97,8 +101,11 @@ O _INPUT_ é semelhante a um objeto *GraphQL* exceto porque é usado somente com
 
 *Resolver* é uma função que devolve dados para um campo  em particular. *Resolvers* devolvem dados no tipo e formato especificados pelo _schema_.
 
-* 
 Para exemplificar um resolver vamos usar uma lib e falar um pouco de *Go* que é o objetivo.
+
+* 
+
+.background images/feliz.gif 350 1000
 
 * GQLGEN
 
@@ -122,8 +129,23 @@ EXEMPLO DO SITE
  $ mkdir gqlgen-todos
  $ cd gqlgen-todos
  $ go mod init github.com/[username]/gqlgen-todos
+ $ go run github.com/99designs/gqlgen init 
 
-Assim conseguimos inicar um projeto.
+Seguindo o exemplo acima conseguimos inicar um projeto.
+
+* COMANDOS 
+
+ go run github.com/99designs/gqlgen init 
+
+ go run github.com/99designs/gqlgen -v 
+
+Uma forma de simplificar o comandos acima é usando o comando abaixo.
+
+ go generated ./...
+
+Para usá-lo é necessário add uma especificação da lib, no arquivo resolver entre a chamada do _package_ e _import_.
+
+ //go:generate go run github.com/99designs/gqlgen
 
 * 
 
@@ -150,15 +172,16 @@ Onde existe a configuração do nosso servidor.
 
 * 
 
-Agora sim podemos pensar em *resolvers*, mas para isso precisamos manipular o arquivo criado, pois sempre que criarmos uma nova _query_ ou _mutation_ devemos rodar o comando:
+Agora sim podemos pensar em *resolvers*, mas para isso precisamos manipular o arquivo *resolver.go*, pois sempre que criarmos uma nova _query_ ou _mutation_ devemos rodar o comando:
 
- go run github.com/99designs/gqlgen/ 
+ go run github.com/99designs/gqlgen
 
 pois é ele que exclue o *models_gen.go* e *resolver* e recria tudo novamente. A melhor forma é criar 2 novos arquivos e add o resolve no _.gitgnore_. 
 
-Exemplo: 
+ 
+## No exemplo desta apresentação criei um diretorio *manager* e copiei os arquivos *generated*, *models_gen* e *resolver* 
 
-No exempre criei diretorio *manager* com os arquivos *generated* e *resolver* 
+A seguir um exemplo de _queryRevolver_
 
 
 * 
@@ -167,20 +190,60 @@ No exempre criei diretorio *manager* com os arquivos *generated* e *resolver*
 
 * 
 
-Para exemplificar melhor, vou mostrar como fica o código de uma *query* e uma *mutation* gerada via *gqlgen*.
+É bem facil trabalhar com resolver no gqlgen pois essa função é criada automaticamente. A unica coisa que temos que fazer é
+copia-la para o arquivo de resolver especifíco.
+
+* ERRORS
+
+Gqlgen é composto de funções para tratar os errors que devem ser retornados caso aconteça.
+
+Uma boa pratica é crar um função que trata estes erros.
+
+* EXEMPLOS DE ERROS
+
+- CHAMADA PARA ERRO SIMPLES
+
+ gqlerror.Errorf(" Algum erro aconteceu. Error [%s]", err)
+
+- CHAMADA PARA ERRO COMPOSTO 
+
+ graphql.AddError(ctx, &gqlerror.Error{
+    Message: "Erro Teste",
+    Extensions: map[string]interface{}{
+        "status": "500",
+    },
+ })
+
+* EXEMPLO USANDO FUNÇÃO
+
+.code codes/simpleErro.go
+
+* 
+
+Então é isso galera, Ainda tenho algumas pendencias
+
+- Querys complexas
+- Subscriptions
+- Paginação
+
+Promento fazer se todos começarem a seguir os canais golang-sp, e rola hashtag *#queryscomplexas* no twitter.
+
+kkkk brincadeiras a parte mas antes do fim do ano farei uma nova. focada nesses 3 temas.
+
+* 
+
+.image images/mineiro.png 500 _
+
+*  
+
+Obrigado a todos!
+
+.image images/aplausos.gif 500 1000
 
 
+* LINKS / REFERÊNCIAS
 
 .link https://github.com/graphql-go/graphql go-graphql
-
-* Erros gqlgen
-
-.play codes/erros.go
-
-* EMPRESAS QUE USAM
-
-* LINKS
-
 .link https://swapi.co API EXEMPLO
 .link https://gqlgen.com SITE GQLGEN
 .link https://github.com/gobelohorizonte GITHUB GO-BH 
