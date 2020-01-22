@@ -1,0 +1,46 @@
+<style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=PT+Sans|Ubuntu:300,400,700);
+    
+    .container {
+      background: #fff;
+      width: 100%;
+      max-width: 680px;
+      min-width: 580px;
+      margin: 2em auto 0;
+      padding: 1.5em;
+    }
+    
+    blockquote {
+      display: block;
+      border-width: 2px 0;
+      border-style: solid;
+      border-color: #eee;
+      padding: 1.5em 0 0.5em;
+      margin: 1.5em 0;
+      position: relative;
+      font: italic 300 1em/1.5em 'Ubuntu', sans-serif;
+    }
+    blockquote:before {
+      content: '\201C';
+      position: absolute;
+      top: 0em;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      width: 3rem;
+      height: 2rem;
+      font: 6em/1.08em 'PT Sans', sans-serif;
+      color: #666;
+      text-align: center;
+    }
+    blockquote:after {
+      content: "\2013 \2003" attr(cite);
+      display: block;
+      text-align: right;
+      font-size: 0.875em;
+      color: #e74c3c;
+    }
+</style>
+<div class="container">
+    <blockquote cite="graphql.org"><b>GraphQL</b> é uma <b>linguagem de consultas</b> (query language) para suas <b>APIs</b> e um <b>runtime</b> (ambiente de execução) para atender a essas consultas com os dados existentes.</blockquote>
+</div>
