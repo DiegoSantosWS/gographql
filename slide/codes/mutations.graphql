@@ -1,14 +1,10 @@
 type mutation {
     
-    //representa verbo POST
-    postPerson(input NewPerson!): Person!
-
-    //representa verbo DELETE
-    deletePerson(id:ID): Boolean!
-
-    //representa verbo PUT
-    putPerson(input: NewPerson!): Person!
-
-    //representa verbo PATCH
+    createPerson(input: NewPerson!): Person!
+    
+    delPerson(id:ID): Boolean!
+    
+    updatePerson(input: UpdatePerson!): Person!
+    
     patchPerson(email:String!): Boolean!
 }

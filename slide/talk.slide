@@ -10,7 +10,6 @@ http://abre.ai/meu_linkedin
 * 
 
 .background images/medo.gif
-# .image images/medo.gif _ 900
 
 * INTRODUÇÃO
 
@@ -63,7 +62,7 @@ Um exemplo é o tipo *Time* usado no campo *Created* do schema *Person*
 
 .code codes/example.graphql
 
-* QUERYS
+* QUERY
 
 É definida como *root* *type*. Os campos disponíves na query para consultas são definidos no _SCHEMA_.
 
@@ -76,7 +75,7 @@ OBS: Uma query serve para realizar consultas. É o mesmo que fazer uma requisiç
 
 .code codes/definicaoquery.graphql
 
-Quando começamos a usar *GraphQL* precisamos instalar um cliente para testarmos _querys_ e _motations_, esse cliente contém um _playground_ onde vamos executar as chamadas, um exemplo online é: [[https://swapi.graph.cool/][swapi]]
+Quando começamos a usar *GraphQL* precisamos instalar um cliente para testarmos _query_ e _mutation_, esse cliente contém um _playground_ onde vamos executar as chamadas, um exemplo online é: [[https://swapi.graph.cool/][swapi]]
 
 * EXEMPLO DE USABILIDADE PARA QUERY
 
@@ -86,7 +85,7 @@ Quando começamos a usar *GraphQL* precisamos instalar um cliente para testarmos
 
 As *mutations* (mutações) também são definidas em um _SCHEMA_ assim como as _querys_, possuem seus tipos/objetos personalizados, que devem ser adicionados no _schema_. Não existe muita diferença no modo de definir uma *mutação* ou *query*.
 
-A diferença existente esta na interação. Uma forma de usar uma *MUTATION* é quando houver uma ação, evento de mudar algo que diz respeito ao estado de um registro.
+A diferença existente está na interação. Uma forma de usar uma *MUTATION* é quando houver uma ação, evento de mudar algo que diz respeito ao estado de um registro.
 
 Uma *MUTATION* deve representar os verbos HTTP em sua aplicação.
 
@@ -96,7 +95,7 @@ Uma *MUTATION* deve representar os verbos HTTP em sua aplicação.
 
 * TYPE INPUT
 
-Este tipo costuma ser usado quando tempos muitos parâmetros a ser passado para uma *mutation*. O _INPUT_ é uma forma de organizar.
+Este tipo costuma ser usado quando temos muitos parâmetros a ser passado para uma *mutation*. O _INPUT_ é uma forma de organizar.
 O _INPUT_ é semelhante a um objeto *GraphQL* exceto porque é usado somente como argumento de entrada, para uma *mutation*.
 
 * RESOLVERS
@@ -225,19 +224,18 @@ Uma boa prática é crar uma função que trata esses erros.
 
 Então é isso *Gophers*... mas, ainda temos algumas pendências:
 
-- Querys complexas
+- Queries complexas
 - Subscriptions
 - Paginação
 
-Promento fazer o complemento dessa palestra se todos começarem a seguir a comunidade *Golang* *SP* nas redes sociais: 
+Prometo fazer o complemento dessa palestra se todos começarem a seguir a comunidade *Golang* *SP* nas redes sociais: 
 
-- youtube.com/c/GolangSP
-- instagram.com/golang_sp/
-- twitter.com/golang_sp
-- linkedin.com/company/golangsp/
+.link https://youtube.com/c/GolangSP
+.link https://instagram.com/golang_sp/
+.link https://twitter.com/golang_sp
+.link https://linkedin.com/company/golangsp/
 
 e é claro, tem que rolar postagens com a hashtag *#queryscomplexas*.
-
 *kkkk* brincadeiras à parte, mas antes do fim do ano farei uma nova focada nesses 3 temas.
 
 * 
@@ -251,13 +249,13 @@ e é claro, tem que rolar postagens com a hashtag *#queryscomplexas*.
 
 * LINKS / REFERÊNCIAS
 
-.link https://github.com/graphql-go/graphql go-graphql
-.link https://swapi.co API EXEMPLO
 .link https://gqlgen.com SITE GQLGEN
-.link https://github.com/gobelohorizonte GITHUB GO-BH 
-.link https://t.me/go_br GO BR
 .link https://github.com/DiegoSantosWS MEU GITHUB
+.link https://swapi.co API EXEMPLO
+.link https://t.me/go_br GO BR
 .link https://t.me/go_bh GRUPO TELEGRAM
+.link https://github.com/gobelohorizonte GITHUB GO-BH 
+.link https://github.com/graphql-go/graphql go-graphql
 
 * 
 
